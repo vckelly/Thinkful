@@ -1,23 +1,21 @@
-fizz = range(101)
+fizz = range(1, 100)
 buzz = []
-n = 100
 
 for i in fizz: 
-	if (i % 5) != 0 and (i % 3) != 0:
-		buzz.append(i)
 
-	elif (i % 5) == 0 and (i % 3) == 0:
+	if (i % 5) == 0 and (i % 3) == 0:
 		buzz.append("fizzbuzz")
 
 	elif (i % 5) == 0: 
 		buzz.append("buzz")
 
-	else: 
+	elif (i % 3) == 0:
 		buzz.append("fizz")
+
+	else: 
+		buzz.append(i)
 		
-
-
-print "Fizz buzz counting up to 100"
+print "Fizz buzz counting up to 100" 
 
 print buzz
 
