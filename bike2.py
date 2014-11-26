@@ -5,7 +5,7 @@ huffy = Manufacturer("Huffy")
 huffyraceW = Wheels("Light", 70, 1)
 huffyraceF = Frames("Light", 250, 2)
 huffyrace = BikeModels("Huffy Race")
-huffyrace.modelweight(1, 3)
+huffyrace.modelweight(1, 2)
 huffyrace.modelcost(70, 250)
 huffyrace.manutotalprice(.20)
 
@@ -44,13 +44,13 @@ print huffyoffroad + huffyoffroad.modelweight
 print trekrace + trekrace.modelweight
 print trekcruiser + trekcruiser.modelweight
 
-customer1 = Customers("Johnny J", 200.00, "cruiser bike")
+customer1 = Customers("Johnny J", 300.00, "cruiser bike")
 print customer1.name + (customer1.budget >= shoptotalprice)
 
-customer2 = Customers("Mary J", 500, "offroad bike")
+customer2 = Customers("Mary J", 500.00, "offroad bike")
 print customer2.name + (customer2.budget >= shoptotalprice) 
 
-customer3 = Customers("Mikey J", 1000, "race bike")
+customer3 = Customers("Mikey J", 1000.00, "race bike")
 print customer3.name + (customer3.budget >= shoptotalprice)
 
 print "Bike Shop's inventory before sales:"
