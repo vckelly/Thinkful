@@ -16,7 +16,7 @@ ingredients = {
     "fruity": ["slice of orange", "dash of cassis", "cherry on top"]
 }
 
-def get_pref():
+def get_pref():  # TODO: check user input for y/n or Y/N - else ask again...
   preferences = {}
 
   for pref, question in questions.iteritems():
