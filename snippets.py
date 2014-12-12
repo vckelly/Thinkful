@@ -11,7 +11,7 @@ def put(name, snippet, filename):
     logging.debug("Opening file")
     with open(filename, "a") as f:
         writer = csv.writer(f)
-        logging.debug("Writing snippet to file").format(name, snippet)
+        logging.debug("Writing snippet to file".format(name, snippet))
         writer.writerow([name, snippet])
     logging.debug("Write sucessful")
     return name, snippet
@@ -31,6 +31,11 @@ def make_parser():
   put_parser.add_argument("snippet", help = "The snippet text")
   put_parser.add_argument("filename", default = "snippets.csv", nargs = "?", help = "The snippet filename")
   
+  #subparser for the get command
+  logging.debug("Constructing get subparser")
+  get_parser = subparsers.add_parser('get', help="Get a snippet")
+  get_parser.add_argument("name", help="The name of the snippet")
+  get_parser.add_argument("filename", help="The snippet filename")
   
   return parser
 
