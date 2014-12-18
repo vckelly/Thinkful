@@ -16,14 +16,14 @@ ingredients = {
     "fruity": ["slice of orange", "dash of cassis", "cherry on top"]
 }
 
-def get_pref():
+def get_pref():  # TODO: check user input for y/n or Y/N - else ask again...
   preferences = {}
-  
+
   for pref, question in questions.iteritems():
     print question
     preferences[pref] = raw_input().lower() in ['y', 'yes']
     print ""
-    
+
   return preferences
 
 def build_drink(preferences):
@@ -31,7 +31,7 @@ def build_drink(preferences):
   for ingredient_kind, liked in preferences.iteritems():
     if not liked:
       continue
-      
+
     drink.append(random.choice(ingredients[ingredient_kind]))
   return drink
 
@@ -45,4 +45,4 @@ def main():
 
 if __name__ == "__main__":
 	main()
-  
+
