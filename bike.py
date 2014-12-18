@@ -2,37 +2,29 @@ class Manufacturer(object):
   def __init__(self, manufname):
     self.manufname = manufname
   
-  def modelcost(self, framecost, wheelcost):
-    self.framecost = framecost
-    self.wheelcost = wheelcost
-
-    
 class BikeModels(Manufacturer):
-  def __init__(self, modelname):
+  def __init__(self, modelname, framecost, wheelcost, numwheels, manufname):
+    super(BikeModels, self).__init__(manufname)
     self.modelname = modelname
-    
-  def modelcost(self, framecost, wheelcost):
     self.framecost = framecost
     self.wheelcost = wheelcost
+    self.numwheels = numwheels
     
-    numwheels = 2.00
-    
-    wheelcost = wheelcost * numwheels
-      
-    
-class BikeShops(Manufacturer):
-  def __init__(self, shopname, profitmarg):
+  def modelcost(self):
+    return self.framecost + (self.wheelcost * self.numwheels)
+  
+ 
+class BikeShops(object):
+  def __init__(self, shopname, profitmarg, bikes):
     self.shopname = shopname
     self.profitmarg = profitmarg
+    self.bikes = bikes
     
-  def modelcost(self, framecost, wheelcost):
-    self.framecost = framecost
-    self.wheelcost = wheelcost
-    
-  def inventory(self, numinstock):
-    self.numinstock = numinstock
-    
-  shopprofit = modelcost * profitmarg
+  def inventory(self):
+    return len(bikes)
+  
+  def manufacturer(self):
+    return [x.manufname for x in self.bikes]
     
 class Customers(object):
   def __init__(self, name, budget, market):
