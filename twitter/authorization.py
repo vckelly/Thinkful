@@ -32,14 +32,14 @@ def get_acess_token(request_token, request_secret, verifier):
                 verifier=verifier)
   
   response = requests.post(ACCESS_TOKEN_URL, auth=oauth)
-  credentials = urlarese.parse_qs(response.content)
+  credentials = urlparse.parse_qs(response.content)
   access_token = credentials.get('oauth_token')[0]
   access_secret = credentials.get('oauth_token_secret')[0]
   return access_token, access_secret
 
 def store_credentials(access_token, access_secret):
   # save our access credentials in a json file
-  with open('access.json, "w") as f:
+  with open('access.json', "w") as f:
       json.dump({"access_token": access_token,
                  "access_secret": access_secret}, f)
             
